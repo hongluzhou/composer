@@ -1,0 +1,118 @@
+exp_name: composer_vd_original
+
+
+# -- Dataset settings
+dataset_name: volleyball
+dataset_dir: /common/users/hz289/Dataset/volleyball
+olympic_split: False
+ball_trajectory_use: True
+joints_folder_name: joints_manual_annotations
+tracklets_file_name: tracks_normalized_manual_annotations.pkl
+person_action_label_file_name: tracks_normalized_manual_annotations_with_person_action_label.pkl
+ball_trajectory_folder_name: volleyball_ball_annotation
+
+horizontal_flip_augment: True
+horizontal_flip_augment_purturb: True
+horizontal_move_augment: True
+horizontal_move_augment_purturb: True
+vertical_move_augment: True
+vertical_move_augment_purturb: True
+agent_dropout_augment: True
+
+image_h: 720
+image_w: 1280
+num_classes: 8
+num_person_action_classes: 10
+frame_start_idx: 5
+frame_end_idx: 14
+frame_sampling: 1
+N: 12 
+J: 17
+T: 10
+recollect_stats_train: False
+
+
+# -- Training settings
+seed: -1
+batch_size: 256
+num_epochs: 5
+num_workers: -1
+optimizer: 'adam'
+learning_rate: 0.0001
+weight_decay: 0.001
+
+
+# -- Learning objective settings
+loss_coe_fine: 1
+loss_coe_mid: 1
+loss_coe_coarse: 1
+loss_coe_group: 1
+loss_coe_last_TNT: 3
+loss_coe_person: 1
+use_group_activity_weights: True
+use_person_action_weights: True
+
+
+# -- Contrastive cluster assignment
+nmb_prototypes: 100
+temperature: 0.1
+sinkhorn_iterations: 3
+loss_coe_constrastive_clustering: 1
+
+
+# -- Model settings
+model_type: composer
+group_person_frame_idx: 5
+joint_initial_feat_dim: 8
+joint2person_feat_dim: 2
+num_gcn_layers: 3
+max_num_tokens: 10
+max_times_embed: 100
+time_position_embedding_type: absolute_learned_1D 
+max_image_positions_h: 1000
+max_image_positions_w: 1500
+image_position_embedding_type: learned_fourier_2D
+# ------ Multiscale Transformer settings
+projection_batchnorm: False
+projection_dropout: 0
+TNT_hidden_dim: 256
+TNT_n_layers: 2
+innerTx_nhead: 2 
+innerTx_dim_feedforward: 1024
+innerTx_dropout: 0.5
+innerTx_activation: relu 
+middleTx_nhead: 8
+middleTx_dim_feedforward: 1024
+middleTx_dropout: 0.2
+middleTx_activation: relu 
+outerTx_nhead: 2
+outerTx_dim_feedforward: 1024
+outerTx_dropout: 0.2
+outerTx_activation: relu 
+groupTx_nhead: 2
+groupTx_dim_feedforward: 1024
+groupTx_dropout: 0
+groupTx_activation: relu 
+# ------ Final classifier settings
+classifier_use_batchnorm: False
+classifier_dropout: 0
+
+
+
+# -- Runtime settings
+gpu:
+  - 0
+#   - 1
+#   - 2
+#   - 3
+#   - 4
+#   - 5
+#   - 6
+#   - 7
+dev: 0
+  
+  
+# -- Output settings
+checkpoint_dir: ./checkpoints/
+log_dir: ./logs/
+
