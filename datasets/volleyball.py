@@ -412,7 +412,7 @@ class Volleyball(Dataset):
                 return torch.mean(sub_scale_distances, dim=-1, keepdim=True)
             else:
                 print('Please check whether scale_distance_fn is supported!')
-                pdb.set_trace()
+                os._exit(0)
         
         scale_distances = compute_scale_distances() 
         
@@ -803,7 +803,7 @@ class Volleyball(Dataset):
             # (T, 2)
                         
         person_labels = torch.LongTensor(person_labels[frames[0]].squeeze())  # person action remains to be the same across all frames 
-        # person_labels: (12, )
+        # person_labels: (N, )
         
         # if horizontal flip augmentation and is training
         if self.args.horizontal_flip_augment and self.split == 'train':
@@ -890,7 +890,7 @@ class Volleyball(Dataset):
                 joint_coords_all.append(joint_coords_n)
                 
                 
-        # basic joint features (std normalization)
+        # get basic joint features (std normalization)
         joint_feats_basic = []  # (N, J, T, d_0_v1) 
         for n in range(self.args.N):
             joint_feats_n = []

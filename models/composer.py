@@ -68,7 +68,7 @@ class COMPOSER(nn.Module):
   
         
         # ball track projection layer
-        if args.ball_trajectory_use:
+        if hasattr(args, 'ball_trajectory_use') and args.ball_trajectory_use:
             self.ball_track_projection_layer = build_mlp(input_dim=(2*args.joint_initial_feat_dim+4)*args.T,
                                                      hidden_dims=[args.TNT_hidden_dim], 
                                                      output_dim=args.TNT_hidden_dim,
@@ -77,7 +77,7 @@ class COMPOSER(nn.Module):
         
         
         # TNT blocks
-        if args.ball_trajectory_use:
+        if hasattr(args, 'ball_trajectory_use') and args.ball_trajectory_use:
             from models.tnt_four_scales_with_ball import TNT
         else:
             if self.args.dataset_name == 'volleyball':
@@ -225,7 +225,7 @@ class COMPOSER(nn.Module):
             os._exit(0)
                
         # ball related encodings
-        if self.args.ball_trajectory_use:
+        if hasattr(self.args, 'ball_trajectory_use') and self.args.ball_trajectory_use:
             ball_coords = ball_feats_thisbatch[:,:,-2:].to(torch.int64).cuda()  # the last 2 dims are [x, y], (B, T, 2)
             ball_coords_embeded = image_coords_learned[ball_coords[:, :, 1], ball_coords[:, :, 0]]  # (B, T, d)
             ball_feats_thisbatch = torch.cat([ball_feats_thisbatch[:,:,:-2],  # (B, T, 4)

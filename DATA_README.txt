@@ -1,5 +1,5 @@
 ************************************************************
-*** folder 'joints_manual_annotations':
+*** folder 'joints':
 This folder contains the HRNet extracted joints of each person of each clip on the Volleyball dataset. 
 The folder structure after unzip is:
 - video_id
@@ -47,13 +47,13 @@ COCO_KEYPOINT_INDEXES = {
 
 
 ************************************************************
-*** file 'tracks_normalized_manual_annotations.pkl' & file 'tracks_normalized_manual_annotations_with_person_action_label.pkl':
+*** file 'tracks_normalized.pkl' & file 'tracks_normalized_with_person_action_label.pkl':
 
 >>> import pickle
->>> with open('tracks_normalized_manual_annotations.pkl', 'rb') as f:
+>>> with open('tracks_normalized.pkl', 'rb') as f:
 ...     tracks = pickle.load(f)
 ... 
->>> with open('tracks_normalized_manual_annotations_with_person_action_label.pkl', 'rb') as f:
+>>> with open('tracks_normalized_with_person_action_label.pkl', 'rb') as f:
 ...     actions = pickle.load(f)
 ... 
 

@@ -53,15 +53,15 @@ cluster_ids_x, cluster_centers, cluster_iterations = kmeans(
 
 # Dataset Preparation
 ### Volleyball
-Please refer to [this repo](https://github.com/mostafa-saad/deep-activity-rec#dataset "this repo") to obtain the raw files (such as video frames and annotations) of the Volleyball dataset. 
+Please refer to [this repo](https://github.com/mostafa-saad/deep-activity-rec#dataset) to obtain the raw files (such as video frames and annotations) of the Volleyball dataset. 
 For convenience, we have also zipped and uploaded the Volleyball data folder that we used when we ran COMPOSER, and you can download the data using [this link](https://drive.google.com/file/d/1_OST0tsb072pzSWCTP4PhmWp18aw69sv/view?usp=sharing). The file size is large though (62.23 GB).
 The folder contains the following files and subdirectories:
 - volleyball/
     - videos/
-    - joints_manual_annotations/
+    - joints/
+    - tracks_normalized.pkl
+    - tracks_normalized_with_person_action_label.pkl
     - volleyball_ball_annotation/
-    - tracks_normalized_manual_annotations_with_person_action_label.pkl
-    - tracks_normalized_manual_annotations.pkl
 
 Please see DATA_README.txt to understand the data formats, etc.    
 
@@ -69,11 +69,18 @@ Please see DATA_README.txt to understand the data formats, etc.
 To use the Olympic split of the Volleyball dataset, simply set `olympic_split` in the config yml file to be `True`.    
 
 ### Collective Activity
-Please refer to [this website](https://cvgl.stanford.edu/projects/collective/collectiveActivity.html) for details on this dataset and obtaining the annotations and video frames.    
-For easier reproducibility, we will also zip and upload the data folder with keypoints extracted.    
-
+Please refer to [this website](https://cvgl.stanford.edu/projects/collective/collectiveActivity.html) for details on this dataset and obtaining the video frames.    
+For easier reproducibility, we have zipped and uploaded the Collective Activity data folder that we used, and you can download the data using [this link](https://drive.google.com/file/d/1_KkKyweMZdnxtTByPebOgO1JVCMV_1Pa/view?usp=sharing).    
+The folder contains the following files and subdirectories:
+- collective/  
+    - videos/
+    - joints/
+    - annotations.pkl
+    - tracks_normalized.pkl
+    - tracks_normalized_with_person_action_label.pkl
+   
 ### Keypoint Extraction Using HRNet
-We use [HRNet](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch) for keypoint extraction, and the code we modified to perform keypoint extraction on the Volleyball dataset will be available at [this repo](https://github.com/hongluzhou/hrnet_pose_extract).    
+We use [HRNet](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch) for keypoint extraction, and the code we modified to perform keypoint extraction on the Volleyball dataset is available at [this repo](https://github.com/hongluzhou/hrnet_pose_extract).    
 
 # Train
 First, please modify `dataset_dir` in the config yml file to the path where you put the downloaded dataset.     
