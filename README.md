@@ -54,7 +54,7 @@ cluster_ids_x, cluster_centers, cluster_iterations = kmeans(
 # Dataset Preparation
 ### Volleyball
 Please refer to [this repo](https://github.com/mostafa-saad/deep-activity-rec#dataset) to obtain the raw files (such as video frames and annotations) of the Volleyball dataset. 
-For convenience, we have also zipped and uploaded the Volleyball data folder that we used when we ran COMPOSER, and you can download the data using [this link](https://drive.google.com/file/d/1_OST0tsb072pzSWCTP4PhmWp18aw69sv/view?usp=sharing). The file size is large though (62.23 GB).
+For convenience, we have also zipped and uploaded the Volleyball data folder that we used when we ran COMPOSER, and you can download the data using [this link](https://drive.google.com/file/d/1NF7aiplia3g5Ng5pARoYjS47wPz66XCx/view?usp=sharing). The file size is large though (62.23 GB).
 The folder contains the following files and subdirectories:
 - volleyball/
     - videos/
