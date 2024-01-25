@@ -111,7 +111,7 @@ Hence, if you do not want to train a full model and just want to use the relased
 Then, you can start the testing (make sure`dataset_dir` in the config yml file is correct).    
 
 # Checkpoints
-Please download the checkpoints using [this link](https://drive.google.com/file/d/1rBQSoGS7MrhvDaPRtVi0TbZygoe63Fo_/view?usp=sharing). The following checkpoint files are provided:   
+Please download the checkpoints using [this link](https://drive.google.com/file/d/1mtxdGH9ae8nCnbD3RPCoGw9_hsmNqVn6/view?usp=sharing). The following checkpoint files are provided:   
 ./checkpoints/  
 ├── composer_collective.pth   
 ├── composer_volleyball_olympic.pth   
