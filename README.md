@@ -54,7 +54,7 @@ cluster_ids_x, cluster_centers, cluster_iterations = kmeans(
 # Dataset Preparation
 ### Volleyball
 Please refer to [this repo](https://github.com/mostafa-saad/deep-activity-rec#dataset) to obtain the raw files (such as video frames and annotations) of the Volleyball dataset. 
-For convenience, we have also zipped and uploaded the Volleyball data folder that we used when we ran COMPOSER, and you can download the data using [this link](https://drive.google.com/file/d/1NF7aiplia3g5Ng5pARoYjS47wPz66XCx/view?usp=sharing). The file size is large though (62.23 GB).
+For convenience, we have also zipped and uploaded the Volleyball data folder that we used when we ran COMPOSER, and you can download the data using [this link](https://drive.google.com/file/d/1iey8R5ZgDLGMqWdJ9vJBb3VH6dT5joMY/view?usp=sharing). The file size is large though (62.23 GB).
 The folder contains the following files and subdirectories:
 - volleyball/
     - videos/
@@ -70,7 +70,7 @@ To use the Olympic split of the Volleyball dataset, simply set `olympic_split` i
 
 ### Collective Activity
 Please refer to [this website](https://cvgl.stanford.edu/projects/collective/collectiveActivity.html) for details on this dataset and obtaining the video frames.    
-For easier reproducibility, we have zipped and uploaded the Collective Activity data folder that we used, and you can download the data using [this link](https://drive.google.com/file/d/1_KkKyweMZdnxtTByPebOgO1JVCMV_1Pa/view?usp=sharing).    
+For easier reproducibility, we have zipped and uploaded the Collective Activity data folder that we used, and you can download the data using [this link](https://drive.google.com/file/d/16mFfDa-YfAmSmkiFXExEQCgmK0ywq3hj/view?usp=sharing).    
 The folder contains the following files and subdirectories:
 - collective/  
     - videos/
