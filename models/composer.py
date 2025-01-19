@@ -197,10 +197,9 @@ class COMPOSER(nn.Module):
             right_group_people_idx = people_idx_sort_by_middle_hip_xcoord[:, int(self.args.N//2):]  # (B, N/2)
       
             # form sequence of group track tokens
-            left_group_people_repre = person_track_feats_thisbatch_proj.flatten(
-                0,1)[left_group_people_idx.flatten(0,1)].view(B, int(self.args.N//2), -1)  # (B, N/2, d)
-            right_group_people_repre = person_track_feats_thisbatch_proj.flatten(
-                0,1)[right_group_people_idx.flatten(0,1)].view(B, int(self.args.N//2), -1)  # (B, N/2, d)
+            batch_indices = torch.arange(B).unsqueeze(-1).expand(-1, N // 2)
+            left_group_people_repre = person_track_feats_thisbatch_proj[batch_indices, left_group_people_idx]
+            right_group_people_repre = person_track_feats_thisbatch_proj[batch_indices, right_group_people_idx]
             left_group_feats_thisbatch_proj = self.person_to_group_projection(left_group_people_repre.flatten(1,2))   # (B, d)
             right_group_feats_thisbatch_proj = self.person_to_group_projection(right_group_people_repre.flatten(1,2))   # (B, d)
             group_track_feats_thisbatch_proj = torch.stack([left_group_feats_thisbatch_proj, right_group_feats_thisbatch_proj], dim=1)  # (B, 2, d)
